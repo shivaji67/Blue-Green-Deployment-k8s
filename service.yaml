@@ -4,9 +4,11 @@ metadata:
   name: myapp-service
   namespace: default
 spec:
+  type: NodePort
   selector:
     app: myapp
-    env: blue
+    env: blue  # Jenkins will dynamically change this between blue and green
   ports:
-  - port: 80
-    targetPort: 8080
+  - port: 80          # The internal cluster service port
+    targetPort: 80    # Matches the containerPort in the deployments above
+    nodePort: 30082   # External port to access your app (Valid range: 30000-32767)
