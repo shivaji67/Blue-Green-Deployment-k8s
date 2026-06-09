@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: your-dockerhub-user/myapp:v2
+        image: mirror.gcr.io/library/nginx:alpine
         ports:
-        - containerPort: 8080
+        - containerPort: 80  # Standard Nginx port
