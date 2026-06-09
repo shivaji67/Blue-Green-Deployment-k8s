@@ -17,6 +17,7 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: your-dockerhub-user/myapp:v1
+        # Using Google's mirror to prevent Docker Hub pull rate-limits on Killercoda
+        image: mirror.gcr.io/library/nginx:alpine
         ports:
-        - containerPort: 8080
+        - containerPort: 80  # Standard Nginx port
